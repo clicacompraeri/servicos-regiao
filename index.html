@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analandia Serviços | Quem faz, está aqui</title>
+<style>
+:root{
+  --azul:#0b57c2; --azul-esc:#083a82; --laranja:#ff7a00;
+  --bg:#f5f7fb; --card:#fff; --texto:#101828; --mudo:#667085;
+  --borda:#e4e7ec; --raio:18px; --sombra:0 8px 24px rgba(16,24,40,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--texto)}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.btn{display:inline-block;border:none;border-radius:12px;padding:12px 22px;font-weight:700;cursor:pointer;text-decoration:none;font-size:15px;transition:.2s}
+.btn-laranja{background:var(--laranja);color:#fff}
+.btn-laranja:hover{filter:brightness(.92);transform:translateY(-1px)}
+.btn-azul{background:var(--azul);color:#fff}
+.btn-azul:hover{filter:brightness(.92)}
+.btn-branco{background:#fff;color:var(--azul-esc)}
+
+/* HEADER */
+.topo{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--borda);z-index:10}
+.topo-inner{display:flex;align-items:center;gap:24px;padding:14px 20px}
+.logo{font-size:22px;font-weight:900;color:var(--azul-esc);text-decoration:none}
+.logo span{color:var(--laranja)}
+.topo nav{display:flex;gap:18px;margin-left:auto}
+.topo nav a{color:var(--mudo);text-decoration:none;font-weight:600;font-size:14px}
+.topo nav a:hover{color:var(--azul)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--azul-esc),var(--azul));color:#fff;padding:70px 0 90px}
+.hero h1{font-size:42px;line-height:1.15;margin-bottom:14px}
+.hero h1 strong{color:#ffd21c}
+.hero p{opacity:.85;margin-bottom:28px;font-size:17px}
+.busca{display:flex;gap:10px;background:#fff;padding:10px;border-radius:16px;box-shadow:var(--sombra);flex-wrap:wrap}
+.busca input{flex:1;min-width:160px;border:none;outline:none;padding:12px 14px;font-size:15px;color:var(--texto)}
+.tags{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 14px;border-radius:99px;font-size:13px;cursor:pointer;transition:.2s}
+.tag:hover{background:#fff;color:var(--azul-esc)}
+
+/* SEÇÕES */
+section{padding:56px 0}
+h2{font-size:26px;margin-bottom:20px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between}
+.sec-head span{color:var(--mudo);font-size:14px}
+
+/* CATEGORIAS */
+.grid-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:14px}
+.cat{background:var(--card);border:1px solid var(--borda);border-radius:var(--raio);padding:20px 10px;text-align:center;cursor:pointer;transition:.25s}
+.cat:hover{transform:translateY(-4px);box-shadow:var(--sombra);border-color:var(--laranja)}
+.cat .emoji{font-size:30px;display:block;margin-bottom:8px}
+.cat .nome{font-weight:700;font-size:13px}
+
+/* PROFISSIONAIS */
+.grid-pros{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.pro{background:var(--card);border:1px solid var(--borda);border-radius:var(--raio);padding:22px;transition:.25s;display:flex;flex-direction:column;gap:10px}
+.pro:hover{transform:translateY(-5px);box-shadow:var(--sombra)}
+.pro-top{display:flex;align-items:center;gap:12px}
+.avatar{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px}
+.pro-nome{font-weight:800}
+.pro-oficio{color:var(--mudo);font-size:13px}
+.stars{color:#f5a623;letter-spacing:1px;font-size:14px}
+.pro-meta{color:var(--mudo);font-size:13px}
+.pro .btn{margin-top:auto;text-align:center}
+.vazio{background:var(--card);border:1px dashed var(--borda);border-radius:var(--raio);padding:40px;text-align:center;color:var(--mudo)}
+
+/* COMO FUNCIONA */
+.como{background:#fff}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.passo{background:var(--bg);border-radius:var(--raio);padding:26px}
+.passo span{display:inline-flex;width:38px;height:38px;border-radius:50%;background:var(--laranja);color:#fff;font-weight:900;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
+.passo h3{margin-bottom:8px}
+.passo p{color:var(--mudo);font-size:14px;line-height:1.6}
+
+/* ANUNCIE */
+.anuncie{background:var(--azul-esc);color:#fff}
+.anuncie-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.anuncie p{opacity:.85;margin-top:6px}
+
+/* FORM */
+.form{background:var(--card);border:1px solid var(--borda);border-radius:var(--raio);padding:26px;display:grid;gap:12px;max-width:640px}
+.form input,.form select,.form textarea{border:1px solid var(--borda);border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit;outline:none}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--azul)}
+.form-nota{color:var(--mudo);font-size:13px}
+
+/* FOOTER */
+footer{background:#0d1526;color:#98a2b3;padding:34px 0;margin-top:40px}
+footer strong{color:#fff}
+footer p+p{margin-top:6px;font-size:14px}
+
+@media(max-width:640px){
+  .hero h1{font-size:30px}
+  .topo nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="container topo-inner">
+    <a class="logo" href="#">Analandia<span>.serviços</span></a>
+    <nav>
+      <a href="#categorias">Categorias</a>
+      <a href="#profissionais">Profissionais</a>
+      <a href="#como">Como funciona</a>
+    </nav>
+    <a class="btn btn-laranja" href="#anuncie">Sou profissional</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Precisou de um serviço?<br><strong>Chama quem é de confiança.</strong></h1>
+    <p>Pedreiros, eletricistas, diaristas e muito mais — aqui em Analândia e região.</p>
+    <form class="busca" id="formBusca">
+      <input id="q" type="text" placeholder="O que você precisa? Ex: eletricista">
+      <input id="cidade" type="text" placeholder="Cidade" value="Analândia">
+      <button class="btn btn-laranja" type="submit">Buscar</button>
+    </form>
+    <div class="tags" id="tags"></div>
+  </div>
+</section>
+
+<section id="categorias">
+  <div class="container">
+    <h2>Categorias</h2>
+    <div class="grid-cats" id="gridCats"></div>
+  </div>
+</section>
+
+<section id="profissionais">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Profissionais em destaque</h2>
+      <span id="contagem"></span>
+    </div>
+    <div class="grid-pros" id="listaPros"></div>
+  </div>
+</section>
+
+<section class="como" id="como">
+  <div class="container grid-3">
+    <div class="passo"><span>1</span><h3>Busque</h3><p>Diga o que precisa e veja os profissionais da sua cidade.</p></div>
+    <div class="passo"><span>2</span><h3>Compare</h3><p>Veja avaliações e serviços feitos, e chame no WhatsApp.</p></div>
+    <div class="passo"><span>3</span><h3>Contrate</h3><p>Combine direto com o profissional, sem intermediários.</p></div>
+  </div>
+</section>
+
+<section class="anuncie" id="anuncie">
+  <div class="container anuncie-inner">
+    <div>
+      <h2>Trabalha com serviços?</h2>
+      <p>Anuncie grátis e receba contatos de clientes da sua cidade no seu WhatsApp.</p>
+    </div>
+    <a class="btn btn-branco" href="#formPro">Quero anunciar</a>
+  </div>
+</section>
+
+<section id="formPro">
+  <div class="container">
+    <h2>Cadastro de profissional</h2>
+    <form id="cadPro" class="form">
+      <input required name="nome" placeholder="Seu nome completo">
+      <input required name="whats" placeholder="Seu WhatsApp (com DDD)">
+      <select required name="oficio">
+        <option value="">Escolha seu serviço</option>
+        <option>Pedreiro</option><option>Eletricista</option><option>Encanador</option>
+        <option>Pintor</option><option>Diarista</option><option>Jardineiro</option>
+        <option>Ar-condicionado</option><option>Montador de móveis</option>
+        <option>Mecânico</option><option>Beleza</option><option>Outro</option>
+      </select>
+      <input required name="cidade" placeholder="Cidade" value="Analândia">
+      <textarea name="bio" rows="3" placeholder="Conte um pouco da sua experiência (opcional)"></textarea>
+      <button class="btn btn-azul" type="submit">Enviar cadastro no WhatsApp</button>
+      <p class="form-nota">Seu cadastro chega direto no WhatsApp da equipe para aprovação. ✅</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><strong>Analandia.serviços</strong> — quem faz, está aqui.</p>
+    <p>Feito com orgulho em Analândia-SP 💙</p>
+  </div>
+</footer>
+
+<script>
+/* ⚠️ TROQUE pelo SEU WhatsApp: só números, com 55 + DDD */
+var NUMERO_DONO = "5519999999999";
+
+var CATS = [
+  {slug:"pedreiro", emoji:"🧱", nome:"Pedreiro"},
+  {slug:"eletricista", emoji:"⚡", nome:"Eletricista"},
+  {slug:"encanador", emoji:"🔧", nome:"Encanador"},
+  {slug:"pintor", emoji:"🎨", nome:"Pintor"},
+  {slug:"diarista", emoji:"🧽", nome:"Diarista"},
+  {slug:"jardineiro", emoji:"🌿", nome:"Jardineiro"},
+  {slug:"ar", emoji:"❄️", nome:"Ar-condicionado"},
+  {slug:"montador", emoji:"🪚", nome:"Montador"},
+  {slug:"mecanico", emoji:"🚗", nome:"Mecânico"},
+  {slug:"beleza", emoji:"💇", nome:"Beleza"}
+];
+
+/* Profissionais iniciais (exemplo) — edite à vontade */
+var PROS = [
+  {nome:"João Pereira", oficio:"Eletricista", cat:"eletricista", nota:4.9, jobs:127, cidade:"Analândia", whats:"5519999999999"},
+  {nome:"Marcos Souza", oficio:"Pedreiro", cat:"pedreiro", nota:4.8, jobs:86, cidade:"Analândia", whats:"5519999999999"},
+  {nome:"Ana Lima", oficio:"Diarista", cat:"diarista", nota:5.0, jobs:203, cidade:"Rio Claro", whats:"5519999999999"},
+  {nome:"Carlos Nunes", oficio:"Encanador", cat:"encanador", nota:4.7, jobs:64, cidade:"Analândia", whats:"5519999999999"},
+  {nome:"Pedro Santos", oficio:"Pintor", cat:"pintor", nota:4.9, jobs:91, cidade:"Itirapina", whats:"5519999999999"},
+  {nome:"Zé Oliveira", oficio:"Jardineiro", cat:"jardineiro", nota:4.8, jobs:58, cidade:"Analândia", whats:"5519999999999"}
+];
+
+var CORES = ["#0b57c2","#ff7a00","#12b76a","#f5a623","#7a5af8","#e11d48"];
+
+function iniciais(nome){
+  var p = nome.trim().split(/\s+/);
+  return (p[0][0] + (p.length>1 ? p[p.length-1][0] : "")).toUpperCase();
+}
+function estrelas(nota){
+  var cheias = Math.round(nota), s = "";
+  for(var i=1;i<=5;i++){ s += i<=cheias ? "★" : "☆"; }
+  return s;
+}
+function renderPros(lista){
+  var box = document.getElementById("listaPros");
+  document.getElementById("contagem").textContent = lista.length + " profissional(is)";
+  if(lista.length === 0){
+    box.innerHTML = '<div class="vazio" style="grid-column:1/-1">Nenhum profissional encontrado ainda.<br><br><a class="btn btn-laranja" href="#anuncie">Seja o primeiro da sua cidade!</a></div>';
+    return;
+  }
+  box.innerHTML = lista.map(function(p,i){
+    var msg = encodeURIComponent("Olá, " + p.nome + "! Vi seu perfil no Analandia.serviços e quero um orçamento.");
+    return '<div class="pro">'
+      + '<div class="pro-top"><div class="avatar" style="background:' + CORES[i%CORES.length] + '">' + iniciais(p.nome) + '</div>'
+      + '<div><div class="pro-nome">' + p.nome + '</div><div class="pro-oficio">' + p.oficio + '</div></div></div>'
+      + '<div class="stars">' + estrelas(p.nota) + ' <span style="color:var(--mudo);font-size:12px">' + p.nota.toFixed(1) + ' (' + p.jobs + ' serviços)</span></div>'
+      + '<div class="pro-meta">📍 ' + p.cidade + '</div>'
+      + '<a class="btn btn-azul" target="_blank" href="https://wa.me/' + p.whats + '?text=' + msg + '">Chamar no WhatsApp</a>'
+      + '</div>';
+  }).join("");
+}
+function filtrar(){
+  var q = document.getElementById("q").value.toLowerCase().trim();
+  var cid = document.getElementById("cidade").value.toLowerCase().trim();
+  renderPros(PROS.filter(function(p){
+    var catNome = (CATS.find(function(c){return c.slug===p.cat})||{}).nome || "";
+    var okQ = !q || (p.nome+" "+p.oficio+" "+catNome).toLowerCase().indexOf(q) !== -1;
+    var okC = !cid || p.cidade.toLowerCase().indexOf(cid) !== -1;
+    return okQ && okC;
+  }));
+}
+
+/* Categorias + tags */
+document.getElementById("gridCats").innerHTML = CATS.map(function(c){
+  return '<div class="cat" data-nome="' + c.nome + '"><span class="emoji">' + c.emoji + '</span><span class="nome">' + c.nome + '</span></div>';
+}).join("");
+document.getElementById("tags").innerHTML = CATS.slice(0,6).map(function(c){
+  return '<span class="tag" data-nome="' + c.nome + '">' + c.emoji + ' ' + c.nome + '</span>';
+}).join("");
+document.querySelectorAll(".cat, .tag").forEach(function(el){
+  el.addEventListener("click", function(){
+    document.getElementById("q").value = el.dataset.nome;
+    filtrar();
+    document.getElementById("profissionais").scrollIntoView({behavior:"smooth"});
+  });
+});
+
+/* Busca */
+document.getElementById("formBusca").addEventListener("submit", function(e){
+  e.preventDefault(); filtrar();
+  document.getElementById("profissionais").scrollIntoView({behavior:"smooth"});
+});
+document.getElementById("q").addEventListener("input", filtrar);
+document.getElementById("cidade").addEventListener("input", filtrar);
+
+/* Cadastro → WhatsApp do dono */
+document.getElementById("cadPro").addEventListener("submit", function(e){
+  e.preventDefault();
+  var f = e.target;
+  var msg = "NOVO CADASTRO DE PROFISSIONAL\n"
+    + "Nome: " + f.nome.value + "\n"
+    + "WhatsApp: " + f.whats.value + "\n"
+    + "Serviço: " + f.oficio.value + "\n"
+    + "Cidade: " + f.cidade.value + "\n"
+    + "Experiência: " + (f.bio.value || "-");
+  window.open("https://wa.me/" + NUMERO_DONO + "?text=" + encodeURIComponent(msg), "_blank");
+});
+
+renderPros(PROS);
+</script>
+</body>
+</html>
